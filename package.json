@@ -11,7 +11,8 @@
     "mocha": "^2.4.5"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha specs",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"
