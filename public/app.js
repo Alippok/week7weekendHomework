@@ -98,8 +98,9 @@ window.onload = function(){
   requestNine.send(null);
 
   var starWarsPeople1 = new Collection;
-  starWarsPeople1.getFromLocalStorage("starWarsPeoplePage1")
-  console.log(starWarsPeople1.collection);
+  starWarsPeople1.getFromLocalStorage("starWarsPeoplePage1");
+  starWarsPeople1.storeObjects();
+  console.log(starWarsPeople1.objectCollection)
   
   
 
