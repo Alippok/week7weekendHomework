@@ -97,16 +97,14 @@ window.onload = function(){
   requestEight.send(null);
   requestNine.send(null);
 
-  
-  var starWarsPeople1 = new MiniCollection;
-  starWarsPeople1.getFromLocalStorage("starWarsPeoplePage1");
-  starWarsPeople1.storeObjects();
-  var starWarsPeople2 = new MiniCollection;
-  starWarsPeople2.getFromLocalStorage("starWarsPeoplePage2");
-  starWarsPeople2.storeObjects();
-  var starWarsPeople3 = new MiniCollection;
-  starWarsPeople3.getFromLocalStorage("starWarsPeoplePage3");
-  starWarsPeople3.storeObjects();
+  createAllPeopleObjectsArray();
+
+}
+
+
+
+
+
   // console.log(starWarsPeople1.objectCollection)
   
   
@@ -160,15 +158,7 @@ window.onload = function(){
 
   // console.log(historyData)
 
-}
 
-var buildCollection = function(){
-  objectCollection = []
-  for (var i = 0; i < arguments.length; i++){
-    objectCollection.push(arguments[i]);
-  }
- return objectCollection;
-}
 
 // "films": "http://swapi.co/api/films/",
 //     "people": "http://swapi.co/api/people/",
@@ -176,3 +166,45 @@ var buildCollection = function(){
 //     "species": "http://swapi.co/api/species/",
 //     "starships": "http://swapi.co/api/starships/",
 //     "vehicles": "http://swapi.co/api/vehicles/"
+var createAllPeopleObjectsArray = function(){
+  var starWarsPeople1 = new MiniCollection;
+  starWarsPeople1.getFromLocalStorage("starWarsPeoplePage1");
+  starWarsPeople1.storeObjects();
+
+  var starWarsPeople2 = new MiniCollection;
+  starWarsPeople2.getFromLocalStorage("starWarsPeoplePage2");
+  starWarsPeople2.storeObjects();
+
+  var starWarsPeople3 = new MiniCollection;
+  starWarsPeople3.getFromLocalStorage("starWarsPeoplePage3");
+  starWarsPeople3.storeObjects();
+
+  var starWarsPeople4 = new MiniCollection;
+  starWarsPeople4.getFromLocalStorage("starWarsPeoplePage4");
+  starWarsPeople4.storeObjects();
+
+  var starWarsPeople5 = new MiniCollection;
+  starWarsPeople5.getFromLocalStorage("starWarsPeoplePage5");
+  starWarsPeople5.storeObjects();
+
+  var starWarsPeople6 = new MiniCollection;
+  starWarsPeople6.getFromLocalStorage("starWarsPeoplePage6");
+  starWarsPeople6.storeObjects();
+
+  var starWarsPeople7 = new MiniCollection;
+  starWarsPeople7.getFromLocalStorage("starWarsPeoplePage7");
+  starWarsPeople7.storeObjects();
+
+  var starWarsPeople8 = new MiniCollection;
+  starWarsPeople8.getFromLocalStorage("starWarsPeoplePage8");
+  starWarsPeople8.storeObjects();
+
+  var starWarsPeople9 = new MiniCollection;
+  starWarsPeople9.getFromLocalStorage("starWarsPeoplePage9");
+  starWarsPeople9.storeObjects();
+
+  var starWarsPeople = new LargeCollection;
+  starWarsPeople.addObjects(starWarsPeople1.objectCollection, starWarsPeople2.objectCollection, starWarsPeople3.objectCollection, starWarsPeople4.objectCollection, starWarsPeople5.objectCollection, starWarsPeople6.objectCollection, starWarsPeople7.objectCollection, starWarsPeople8.objectCollection, starWarsPeople9.objectCollection)
+  console.log(starWarsPeople)
+
+}
