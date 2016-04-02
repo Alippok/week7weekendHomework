@@ -97,10 +97,17 @@ window.onload = function(){
   requestEight.send(null);
   requestNine.send(null);
 
-  var starWarsPeople1 = new Collection;
+  
+  var starWarsPeople1 = new MiniCollection;
   starWarsPeople1.getFromLocalStorage("starWarsPeoplePage1");
   starWarsPeople1.storeObjects();
-  console.log(starWarsPeople1.objectCollection)
+  var starWarsPeople2 = new MiniCollection;
+  starWarsPeople2.getFromLocalStorage("starWarsPeoplePage2");
+  starWarsPeople2.storeObjects();
+  var starWarsPeople3 = new MiniCollection;
+  starWarsPeople3.getFromLocalStorage("starWarsPeoplePage3");
+  starWarsPeople3.storeObjects();
+  // console.log(starWarsPeople1.objectCollection)
   
   
 
@@ -155,7 +162,13 @@ window.onload = function(){
 
 }
 
-
+var buildCollection = function(){
+  objectCollection = []
+  for (var i = 0; i < arguments.length; i++){
+    objectCollection.push(arguments[i]);
+  }
+ return objectCollection;
+}
 
 // "films": "http://swapi.co/api/films/",
 //     "people": "http://swapi.co/api/people/",
