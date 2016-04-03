@@ -93,25 +93,37 @@ window.onload = function(){
 
 
 var main = function(){
-  createPeopleSearchForm();
+  var peopleDropDownMenu = createPeopleDropDownMenu();
+  // console.log(peopleDropDownMenu)
+  var div1 = document.getElementsByTagName("div")
+  div1[0].appendChild(peopleDropDownMenu.select)
+
+  peopleDropDownMenu.select.onchange = function(){
+    // console.log(peopleDropDownMenu.select.value)
+    var personQuery = peopleDropDownMenu.select.value;
+    var starWarsPeople = createAllPeopleObjectsArray();
+    var searchedPerson = starWarsPeople.search( personQuery )
+    console.log(searchedPerson)
+  }
   
 }
 
 
-var createPeopleSearchForm = function(){
+var createPeopleDropDownMenu = function(){
   var starWarsPeople = createAllPeopleObjectsArray();
   // console.log(starWarsPeople.objects)
-  var div1 = document.getElementsByTagName('div')
-  var form1 = new Form;
-  form1.element.id = "people"
-  div1[0].appendChild(form1.element)
-
+  // var div1 = document.getElementsByTagName('div')
+  // var form1 = new Form;
+  // form1.element.id = "people"
+  // div1[0].appendChild(form1.element)
+ 
   var peopleDropDown = new DropDown;
   peopleDropDown.addOptions(starWarsPeople.objects);
-  // console.log(dropDown.select)
+  // console.log(peopleDropDown.select)
   
-  form1.element.appendChild(peopleDropDown.select)
-  form1.addButton("Submit")
+  // div1[0].appendChild(peopleDropDown.select);
+  // form1.addButton("Submit");
+  return peopleDropDown
 }
 
 var createAllPeopleObjectsArray = function(){
@@ -159,6 +171,11 @@ var createAllPeopleObjectsArray = function(){
 
 }
 
-var populatePeopleDisplayArea = function(name){
 
-}
+
+
+
+
+// var populatePeopleDisplayArea = function(name){
+
+// }
