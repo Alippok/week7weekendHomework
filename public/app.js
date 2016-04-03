@@ -92,17 +92,19 @@ var main = function(){
   var peopleDropDownMenu = createPeopleDropDownMenu();
   // console.log(peopleDropDownMenu)
   appendDropDownMenu( peopleDropDownMenu, "people" )
+
   var planets = createAllPlanetObjectsArray()
   // console.log(planets)
   var planetsDropDownMenu = createDropDownMenu(planets, "planets")
   appendDropDownMenu( planetsDropDownMenu, "planets_display")
   // console.log(planetsDropDownMenu)
-  // var div1 = new Display;
-  // var body = document.getElementsByTagName("body");
-  
-  // div1.display.id = "people"
-  // div1.display.appendChild(peopleDropDownMenu.select);
-  // body[0].appendChild(div1.display)
+  var species = createAllSpeciesObjectsArray()
+  var speciesDropDownMenu = createDropDownMenu(species, "species")
+  appendDropDownMenu( speciesDropDownMenu, "species_display")
+
+
+
+
   
   peopleDropDownMenu.select.onchange = function(){
     // console.log(peopleDropDownMenu.select.value)
@@ -163,18 +165,8 @@ var removeChildren = function(element){
 
 var createPeopleDropDownMenu = function(){
   var starWarsPeople = createAllPeopleObjectsArray();
-  // console.log(starWarsPeople.objects)
-  // var div1 = document.getElementsByTagName('div')
-  // var form1 = new Form;
-  // form1.element.id = "people"
-  // div1[0].appendChild(form1.element)
- 
   var peopleDropDown = new DropDown;
   peopleDropDown.addOptions(starWarsPeople.objects);
-  // console.log(peopleDropDown.select)
-  
-  // div1[0].appendChild(peopleDropDown.select);
-  // form1.addButton("Submit");
   return peopleDropDown
 }
 //a go at abstracting creating a dropdown menu
@@ -263,6 +255,27 @@ var createAllPlanetObjectsArray = function(){
   return starWarsPlanets;
 }
 
+var createAllSpeciesObjectsArray = function(){
+  var species1 = new MiniCollection;
+  species1.getFromLocalStorage("starWarsSpeciesPage1");
+  species1.storeObjects();
+
+  var species2 = new MiniCollection;
+  species2.getFromLocalStorage("starWarsSpeciesPage2");
+  species2.storeObjects();
+
+  var species3 = new MiniCollection;
+  species3.getFromLocalStorage("starWarsSpeciesPage3");
+  species3.storeObjects();
+
+  var species4 = new MiniCollection;
+  species4.getFromLocalStorage("starWarsSpeciesPage4");
+  species4.storeObjects();
+
+  var starWarsSpecies = new LargeCollection;
+  starWarsSpecies.addObjects(species1.objectCollection, species2.objectCollection, species3.objectCollection, species4.objectCollection)
+  return starWarsSpecies;
+}
 
 
 

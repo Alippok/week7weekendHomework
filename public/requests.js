@@ -136,4 +136,41 @@ requestSixteen.onload = function(){
   }
 }
 
-var requests = [requestOne, requestTwo, requestThree, requestFour, requestFive, requestSix, requestSeven, requestEight, requestNine, requestTen, requestEleven, requestTwelve, requestThirteen, requestFourteen, requestFifteen, requestSixteen]
+//Species
+var requestSeventeen = new XMLHttpRequest();
+requestSeventeen.open("GET", urlSeventeen);
+requestSeventeen.onload = function(){
+  if (requestSeventeen.status == 200){
+    var species = requestSeventeen.responseText;
+    localStorage.setItem("starWarsSpeciesPage1", species );
+  }
+}
+
+var requestEighteen = new XMLHttpRequest();
+requestEighteen.open("GET", urlEighteen);
+requestEighteen.onload = function(){
+  if (requestEighteen.status == 200){
+    var species = requestEighteen.responseText;
+    localStorage.setItem("starWarsSpeciesPage2", species );
+  }
+}
+
+var requestNineteen = new XMLHttpRequest();
+requestNineteen.open("GET", urlNineteen);
+requestNineteen.onload = function(){
+  if (requestNineteen.status == 200){
+    var species = requestNineteen.responseText;
+    localStorage.setItem("starWarsSpeciesPage3", species );
+  }
+}
+
+var requestTwenty = new XMLHttpRequest();
+requestTwenty.open("GET", urlTwenty);
+requestTwenty.onload = function(){
+  if (requestTwenty.status == 200){
+    var species = requestTwenty.responseText;
+    localStorage.setItem("starWarsSpeciesPage4", species );
+  }
+}
+
+var requests = [requestOne, requestTwo, requestThree, requestFour, requestFive, requestSix, requestSeven, requestEight, requestNine, requestTen, requestEleven, requestTwelve, requestThirteen, requestFourteen, requestFifteen, requestSixteen, requestSeventeen, requestEighteen, requestNineteen, requestTwenty]
