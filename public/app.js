@@ -106,10 +106,10 @@ var main = function(){
   
   peopleDropDownMenu.select.onchange = function(){
     // console.log(peopleDropDownMenu.select.value)
-    var personQuery = peopleDropDownMenu.select.value;
     var starWarsPeople = createAllPeopleObjectsArray();
     var planets = createAllPlanetObjectsArray();
 
+    var personQuery = peopleDropDownMenu.select.value;
     var searchedPerson = starWarsPeople.search( personQuery );
     var homeworld = planets.searchByURL( searchedPerson.homeworld );
     searchedPerson.homeworld = homeworld;
@@ -125,10 +125,15 @@ var main = function(){
   }
   
   planetsDropDownMenu.select.onchange = function(){
-    var planetQuery = planetsDropDownMenu.select.value;
     var planets = createAllPlanetObjectsArray();
+    var starWarsPeople = createAllPeopleObjectsArray();
+
+    var planetQuery = planetsDropDownMenu.select.value;
     var searchedPlanet = planets.search( planetQuery );
+    var residents = starWarsPeople.searchByMultiURL( searchedPlanet.residents );
+    searchedPlanet.residents = residents;
     
+
     var displayList = new UnorderedList;
     displayList.addListItems(searchedPlanet);
 
@@ -257,6 +262,7 @@ var createAllPlanetObjectsArray = function(){
   starWarsPlanets.addObjects(planets1.objectCollection, planets2.objectCollection, planets3.objectCollection, planets4.objectCollection, planets5.objectCollection, planets6.objectCollection, planets7.objectCollection)
   return starWarsPlanets;
 }
+
 
 
 

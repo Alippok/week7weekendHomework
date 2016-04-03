@@ -30,6 +30,18 @@ LargeCollection.prototype = {
       }
     })
     return result;
+  },
+  searchByMultiURL: function(array){
+    var result = []
+    var objects = this.objects;
+    array.forEach(function(url){
+      objects.forEach(function(object){
+        if(object.url === url){
+          result.push(object.name)
+        }
+      })
+    })
+    return result;
   }
 };
 
