@@ -20,7 +20,16 @@ LargeCollection.prototype = {
         result = object;
       }
     })
-    return result
+    return result;
+  },
+  searchByURL: function(url){
+    var result
+    this.objects.forEach(function(object){
+      if(object.url === url){
+        result = object.name
+      }
+    })
+    return result;
   }
 };
 

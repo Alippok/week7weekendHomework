@@ -108,8 +108,12 @@ var main = function(){
     // console.log(peopleDropDownMenu.select.value)
     var personQuery = peopleDropDownMenu.select.value;
     var starWarsPeople = createAllPeopleObjectsArray();
+    var planets = createAllPlanetObjectsArray();
+
     var searchedPerson = starWarsPeople.search( personQuery );
-    
+    var homeworld = planets.searchByURL( searchedPerson.homeworld );
+    searchedPerson.homeworld = homeworld;
+
     var displayList = new UnorderedList;
     displayList.addListItems(searchedPerson);
     // console.log(displayArea.display)
