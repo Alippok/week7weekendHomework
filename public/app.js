@@ -110,11 +110,15 @@ var main = function(){
     // console.log(peopleDropDownMenu.select.value)
     var starWarsPeople = createAllPeopleObjectsArray();
     var planets = createAllPlanetObjectsArray();
+    var species = createAllSpeciesObjectsArray();
 
     var personQuery = peopleDropDownMenu.select.value;
     var searchedPerson = starWarsPeople.search( personQuery );
+    //Generate extra information
     var homeworld = planets.searchByURL( searchedPerson.homeworld );
     searchedPerson.homeworld = homeworld;
+    var species = species.searchByURL( searchedPerson.species.pop() );
+    searchedPerson.species = species;
 
     var displayList = new UnorderedList;
     displayList.addListItems(searchedPerson);
@@ -132,6 +136,7 @@ var main = function(){
 
     var planetQuery = planetsDropDownMenu.select.value;
     var searchedPlanet = planets.search( planetQuery );
+    //Generate extra information
     var residents = starWarsPeople.searchByMultiURL( searchedPlanet.residents );
     searchedPlanet.residents = residents;
     
@@ -144,7 +149,42 @@ var main = function(){
     displayArea.appendChild(displayList.unorderedList);
 
   }
+
+  speciesDropDownMenu.select.onchange = function(){
+    var species = createAllSpeciesObjectsArray()
+    var planets = createAllPlanetObjectsArray();
+    var starWarsPeople = createAllPeopleObjectsArray();
+
+    var speciesQuery = speciesDropDownMenu.select.value;
+    var searchedSpecies = species.search( speciesQuery )
+    //Generate extra information
+    // console.log(searchedSpecies.homeworld)
+    var homeworld = planets.searchByURL( searchedSpecies.homeworld );
+    var people = starWarsPeople.searchByMultiURL( searchedSpecies.people )
+    //Set information
+    searchedSpecies.homeworld = homeworld;
+    searchedSpecies.people = people;
+
+
+
+    var displayList = new UnorderedList;
+    displayList.addListItems(searchedSpecies);
+
+    var displayArea = document.getElementById("species_display");
+    removeChildren(displayArea);
+    displayArea.appendChild(displayList.unorderedList);
+
+  }
+
 }
+
+
+
+
+
+
+
+
 
 var appendDropDownMenu = function(menu, displayId){
   var div = new Display;
