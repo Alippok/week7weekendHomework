@@ -95,15 +95,25 @@ window.onload = function(){
 var main = function(){
   var peopleDropDownMenu = createPeopleDropDownMenu();
   // console.log(peopleDropDownMenu)
-  var div1 = document.getElementsByTagName("div")
-  div1[0].appendChild(peopleDropDownMenu.select)
+  var div1 = new Display
+  var body = document.getElementsByTagName("body")
+
+  div1.display.appendChild(peopleDropDownMenu.select)
+  body[0].appendChild(div1.display)
 
   peopleDropDownMenu.select.onchange = function(){
     // console.log(peopleDropDownMenu.select.value)
     var personQuery = peopleDropDownMenu.select.value;
     var starWarsPeople = createAllPeopleObjectsArray();
     var searchedPerson = starWarsPeople.search( personQuery )
-    console.log(searchedPerson)
+    
+    var displayList = new UnorderedList;
+    displayList.addListItems(searchedPerson);
+    // console.log(displayArea.display)
+    
+    div1.removeChildren();
+    div1.display.appendChild(displayList.unorderedList);
+    
   }
   
 }

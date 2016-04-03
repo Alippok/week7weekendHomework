@@ -12,8 +12,6 @@ Form.prototype = {
 };
 
 
-
-
 var DropDown = function(){
   this.select = document.createElement("select")
 };
@@ -31,23 +29,37 @@ DropDown.prototype = {
 };
 
 
+
+
 var Display = function(){
   this.display = document.createElement("div")
 }
+
+Display.prototype = {
+  removeChildren: function(){
+    if(this.display.childNodes[1] === undefined){
+      return null;
+    } else {
+    this.display.removeChild(this.display.childNodes[1])
+   }
+  }
+}
+
+
+
 
 var UnorderedList = function(){
   this.unorderedList = document.createElement("ul")
 }
 
 UnorderedList.prototype = { 
-  addListItems: function(array){
-    array.forEach(function(objectData){
+  addListItems: function(object){
+    var keys = Object.keys(object)
+    keys.forEach(function(key){
       var listItem = document.createElement("li");
-      listItem.InnerText = objectData + ": " + objectData;
+      listItem.innerText = key + ": " + object[key];
       this.unorderedList.appendChild(listItem);
     }.bind(this))
+      
   }
-
-
-
- }
+}
