@@ -24,7 +24,7 @@ window.onload = function(){
     }
   }
   var requestTwo = new XMLHttpRequest();
-  requestTwo.open("GET", urlOne);
+  requestTwo.open("GET", urlTwo);
   requestTwo.onload = function(){
     if (requestTwo.status == 200){
       var people = requestTwo.responseText;
@@ -32,7 +32,7 @@ window.onload = function(){
     }
   }
   var requestThree = new XMLHttpRequest();
-  requestThree.open("GET", urlOne);
+  requestThree.open("GET", urlThree);
   requestThree.onload = function(){
     if (requestThree.status == 200){
       var people = requestThree.responseText;
@@ -40,7 +40,7 @@ window.onload = function(){
     }
   }
   var requestFour = new XMLHttpRequest();
-  requestFour.open("GET", urlOne);
+  requestFour.open("GET", urlFour);
   requestFour.onload = function(){
     if (requestFour.status == 200){
       var people = requestFour.responseText;
@@ -48,7 +48,7 @@ window.onload = function(){
     }
   }
   var requestFive = new XMLHttpRequest();
-  requestFive.open("GET", urlOne);
+  requestFive.open("GET", urlFive);
   requestFive.onload = function(){
     if (requestFive.status == 200){
       var people = requestFive.responseText;
@@ -56,7 +56,7 @@ window.onload = function(){
     }
   }
   var requestSix = new XMLHttpRequest();
-  requestSix.open("GET", urlOne);
+  requestSix.open("GET", urlSix);
   requestSix.onload = function(){
     if (requestSix.status == 200){
       var people = requestSix.responseText;
@@ -64,7 +64,7 @@ window.onload = function(){
     }
   }
   var requestSeven = new XMLHttpRequest();
-  requestSeven.open("GET", urlOne);
+  requestSeven.open("GET", urlSeven);
   requestSeven.onload = function(){
     if (requestSeven.status == 200){
       var people = requestSeven.responseText;
@@ -72,7 +72,7 @@ window.onload = function(){
     }
   }
   var requestEight = new XMLHttpRequest();
-  requestEight.open("GET", urlOne);
+  requestEight.open("GET", urlEight);
   requestEight.onload = function(){
     if (requestEight.status == 200){
       var people = requestEight.responseText;
@@ -80,7 +80,7 @@ window.onload = function(){
     }
   }
   var requestNine = new XMLHttpRequest();
-  requestNine.open("GET", urlOne);
+  requestNine.open("GET", urlNine);
   requestNine.onload = function(){
     if (requestNine.status == 200){
       var people = requestNine.responseText;
@@ -204,6 +204,7 @@ var createAllPeopleObjectsArray = function(){
   starWarsPeople9.storeObjects();
 
   var starWarsPeople = new LargeCollection;
+  
   starWarsPeople.addObjects(starWarsPeople1.objectCollection, starWarsPeople2.objectCollection, starWarsPeople3.objectCollection, starWarsPeople4.objectCollection, starWarsPeople5.objectCollection, starWarsPeople6.objectCollection, starWarsPeople7.objectCollection, starWarsPeople8.objectCollection, starWarsPeople9.objectCollection)
   console.log(starWarsPeople)
 
