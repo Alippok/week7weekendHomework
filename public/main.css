@@ -4,6 +4,8 @@ form{
 
 div{
   height:500px;
-  width:300px;
+  width:200px;
+  margin-left:50px;
   background-color:green;
+  display:inline-block;
 }

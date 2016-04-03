@@ -92,34 +92,47 @@ var main = function(){
   var peopleDropDownMenu = createPeopleDropDownMenu();
   // console.log(peopleDropDownMenu)
   appendDropDownMenu( peopleDropDownMenu, "people" )
+  var planets = createAllPlanetObjectsArray()
+  // console.log(planets)
+  var planetsDropDownMenu = createDropDownMenu(planets, "planets")
+  appendDropDownMenu( planetsDropDownMenu, "planets_display")
+  // console.log(planetsDropDownMenu)
   // var div1 = new Display;
   // var body = document.getElementsByTagName("body");
   
   // div1.display.id = "people"
   // div1.display.appendChild(peopleDropDownMenu.select);
   // body[0].appendChild(div1.display)
-
-
-
-
-
+  
   peopleDropDownMenu.select.onchange = function(){
     // console.log(peopleDropDownMenu.select.value)
     var personQuery = peopleDropDownMenu.select.value;
     var starWarsPeople = createAllPeopleObjectsArray();
-    var searchedPerson = starWarsPeople.search( personQuery )
+    var searchedPerson = starWarsPeople.search( personQuery );
     
     var displayList = new UnorderedList;
     displayList.addListItems(searchedPerson);
     // console.log(displayArea.display)
     var displayArea = document.getElementById("people")
-    
     removeChildren(displayArea)
         // displayArea.removeChild(displayArea.childNodes[1])
     displayArea.appendChild(displayList.unorderedList);
     
   }
   
+  planetsDropDownMenu.select.onchange = function(){
+    var planetQuery = planetsDropDownMenu.select.value;
+    var planets = createAllPlanetObjectsArray();
+    var searchedPlanet = planets.search( planetQuery );
+    
+    var displayList = new UnorderedList;
+    displayList.addListItems(searchedPlanet);
+
+    var displayArea = document.getElementById("planets_display");
+    removeChildren(displayArea);
+    displayArea.appendChild(displayList.unorderedList);
+
+  }
 }
 
 var appendDropDownMenu = function(menu, displayId){
@@ -154,6 +167,13 @@ var createPeopleDropDownMenu = function(){
   // div1[0].appendChild(peopleDropDown.select);
   // form1.addButton("Submit");
   return peopleDropDown
+}
+//a go at abstracting creating a dropdown menu
+var createDropDownMenu = function(array, id){
+  dropDown = new DropDown;
+  dropDown.id = id;
+  dropDown.addOptions( array.objects )
+  return dropDown;
 }
 
 var createAllPeopleObjectsArray = function(){
@@ -200,7 +220,39 @@ var createAllPeopleObjectsArray = function(){
 
 }
 
+var createAllPlanetObjectsArray = function(){
+  var planets1 = new MiniCollection;
+  planets1.getFromLocalStorage("starWarsPlanetsPage1");
+  planets1.storeObjects();
 
+  var planets2 = new MiniCollection;
+  planets2.getFromLocalStorage("starWarsPlanetsPage2");
+  planets2.storeObjects();
+
+  var planets3 = new MiniCollection;
+  planets3.getFromLocalStorage("starWarsPlanetsPage3");
+  planets3.storeObjects();
+
+  var planets4 = new MiniCollection;
+  planets4.getFromLocalStorage("starWarsPlanetsPage4");
+  planets4.storeObjects();
+
+  var planets5 = new MiniCollection;
+  planets5.getFromLocalStorage("starWarsPlanetsPage5");
+  planets5.storeObjects();
+
+  var planets6 = new MiniCollection;
+  planets6.getFromLocalStorage("starWarsPlanetsPage6");
+  planets6.storeObjects();
+
+  var planets7 = new MiniCollection;
+  planets7.getFromLocalStorage("starWarsPlanetsPage7");
+  planets7.storeObjects();
+
+  var starWarsPlanets = new LargeCollection;
+  starWarsPlanets.addObjects(planets1.objectCollection, planets2.objectCollection, planets3.objectCollection, planets4.objectCollection, planets5.objectCollection, planets6.objectCollection, planets7.objectCollection)
+  return starWarsPlanets;
+}
 
 
 
