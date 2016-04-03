@@ -90,6 +90,30 @@ window.onload = function(){
 
 
 
+
+
+var main = function(){
+  createPeopleSearchForm();
+  
+}
+
+
+var createPeopleSearchForm = function(){
+  var starWarsPeople = createAllPeopleObjectsArray();
+  // console.log(starWarsPeople.objects)
+  var div1 = document.getElementsByTagName('div')
+  var form1 = new Form;
+  form1.element.id = "people"
+  div1[0].appendChild(form1.element)
+
+  var peopleDropDown = new DropDown;
+  peopleDropDown.addOptions(starWarsPeople.objects);
+  // console.log(dropDown.select)
+  
+  form1.element.appendChild(peopleDropDown.select)
+  form1.addButton("Submit")
+}
+
 var createAllPeopleObjectsArray = function(){
   var starWarsPeople1 = new MiniCollection;
   starWarsPeople1.getFromLocalStorage("starWarsPeoplePage1");
@@ -135,16 +159,6 @@ var createAllPeopleObjectsArray = function(){
 
 }
 
-var main = function(){
-  var starWarsPeople = createAllPeopleObjectsArray();
-  // console.log(starWarsPeople.objects)
-  var form1 = new Form;
-  var div = document.getElementsByTagName('div')
-  div[0].appendChild(form1.element)
-
-  var dropDown = new DropDown;
-  dropDown.addOptions(starWarsPeople.objects);
-  // console.log(dropDown.select)
-  form1.element.appendChild(dropDown.select)
+var populatePeopleDisplayArea = function(name){
 
 }
