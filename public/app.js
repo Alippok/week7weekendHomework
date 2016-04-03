@@ -8,16 +8,18 @@ window.onload = function(){
   
  // console.log(starWarsPeopleData)
  
-  requestOne.send(null);
-  requestTwo.send(null);
-  requestThree.send(null);
-  requestFour.send(null);
-  requestFive.send(null);
-  requestSix.send(null);
-  requestSeven.send(null);
-  requestEight.send(null);
-  requestNine.send(null);
-
+  // requestOne.send(null);
+  // requestTwo.send(null);
+  // requestThree.send(null);
+  // requestFour.send(null);
+  // requestFive.send(null);
+  // requestSix.send(null);
+  // requestSeven.send(null);
+  // requestEight.send(null);
+  // requestNine.send(null);
+  requests.forEach(function(request){
+    request.send(null);
+  });
   main()
   
 }
@@ -81,12 +83,6 @@ window.onload = function(){
 
 
 
-// "films": "http://swapi.co/api/films/",
-//     "people": "http://swapi.co/api/people/",
-//     "planets": "http://swapi.co/api/planets/",
-//     "species": "http://swapi.co/api/species/",
-//     "starships": "http://swapi.co/api/starships/",
-//     "vehicles": "http://swapi.co/api/vehicles/"
 
 
 
@@ -95,11 +91,17 @@ window.onload = function(){
 var main = function(){
   var peopleDropDownMenu = createPeopleDropDownMenu();
   // console.log(peopleDropDownMenu)
-  var div1 = new Display
-  var body = document.getElementsByTagName("body")
+  appendDropDownMenu( peopleDropDownMenu, "people" )
+  // var div1 = new Display;
+  // var body = document.getElementsByTagName("body");
+  
+  // div1.display.id = "people"
+  // div1.display.appendChild(peopleDropDownMenu.select);
+  // body[0].appendChild(div1.display)
 
-  div1.display.appendChild(peopleDropDownMenu.select)
-  body[0].appendChild(div1.display)
+
+
+
 
   peopleDropDownMenu.select.onchange = function(){
     // console.log(peopleDropDownMenu.select.value)
@@ -110,14 +112,32 @@ var main = function(){
     var displayList = new UnorderedList;
     displayList.addListItems(searchedPerson);
     // console.log(displayArea.display)
+    var displayArea = document.getElementById("people")
     
-    div1.removeChildren();
-    div1.display.appendChild(displayList.unorderedList);
+    removeChildren(displayArea)
+        // displayArea.removeChild(displayArea.childNodes[1])
+    displayArea.appendChild(displayList.unorderedList);
     
   }
   
 }
 
+var appendDropDownMenu = function(menu, displayId){
+  var div = new Display;
+  var body = document.getElementsByTagName("body");
+  
+  div.display.id = displayId
+  div.display.appendChild(menu.select);
+  body[0].appendChild(div.display)
+}
+
+var removeChildren = function(element){
+  if(element.childNodes[1] === undefined){
+    return null;
+   } else {
+    element.removeChild(element.childNodes[1]);
+   }
+}
 
 var createPeopleDropDownMenu = function(){
   var starWarsPeople = createAllPeopleObjectsArray();
@@ -174,7 +194,6 @@ var createAllPeopleObjectsArray = function(){
   starWarsPeople9.storeObjects();
 
   var starWarsPeople = new LargeCollection;
-  
   starWarsPeople.addObjects(starWarsPeople1.objectCollection, starWarsPeople2.objectCollection, starWarsPeople3.objectCollection, starWarsPeople4.objectCollection, starWarsPeople5.objectCollection, starWarsPeople6.objectCollection, starWarsPeople7.objectCollection, starWarsPeople8.objectCollection, starWarsPeople9.objectCollection)
 
   return starWarsPeople;

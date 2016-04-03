@@ -72,6 +72,68 @@ requestNine.onload = function(){
   }
 }
 
-//
+//Planets
+var requestTen = new XMLHttpRequest();
+requestTen.open("GET", urlTen);
+requestTen.onload = function(){
+  if (requestTen.status == 200){
+    var planets = requestTen.responseText;
+    localStorage.setItem("starWarsPlanetsPage1", planets );
+  }
+}
 
+var requestEleven = new XMLHttpRequest();
+requestEleven.open("GET", urlEleven);
+requestEleven.onload = function(){
+  if (requestEleven.status == 200){
+    var planets = requestEleven.responseText;
+    localStorage.setItem("starWarsPlanetsPage2", planets );
+  }
+}
 
+var requestTwelve = new XMLHttpRequest();
+requestTwelve.open("GET", urlTwelve);
+requestTwelve.onload = function(){
+  if (requestTwelve.status == 200){
+    var planets = requestTwelve.responseText;
+    localStorage.setItem("starWarsPlanetsPage3", planets );
+  }
+}
+
+var requestThirteen = new XMLHttpRequest();
+requestThirteen.open("GET", urlThirteen);
+requestThirteen.onload = function(){
+  if (requestThirteen.status == 200){
+    var planets = requestThirteen.responseText;
+    localStorage.setItem("starWarsPlanetsPage4", planets );
+  }
+}
+
+var requestFourteen = new XMLHttpRequest();
+requestFourteen.open("GET", urlFourteen);
+requestFourteen.onload = function(){
+  if (requestFourteen.status == 200){
+    var planets = requestFourteen.responseText;
+    localStorage.setItem("starWarsPlanetsPage5", planets );
+  }
+}
+
+var requestFifteen = new XMLHttpRequest();
+requestFifteen.open("GET", urlFifteen);
+requestFifteen.onload = function(){
+  if (requestFifteen.status == 200){
+    var planets = requestFifteen.responseText;
+    localStorage.setItem("starWarsPlanetsPage6", planets );
+  }
+}
+
+var requestSixteen = new XMLHttpRequest();
+requestSixteen.open("GET", urlSixteen);
+requestSixteen.onload = function(){
+  if (requestSixteen.status == 200){
+    var planets = requestSixteen.responseText;
+    localStorage.setItem("starWarsPlanetsPage7", planets );
+  }
+}
+
+var requests = [requestOne, requestTwo, requestThree, requestFour, requestFive, requestSix, requestSeven, requestEight, requestNine, requestTen, requestEleven, requestTwelve, requestThirteen, requestFourteen, requestFifteen, requestSixteen]
