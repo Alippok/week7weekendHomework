@@ -18,15 +18,8 @@ window.onload = function(){
   requestEight.send(null);
   requestNine.send(null);
 
-  var starWarsPeople = createAllPeopleObjectsArray();
-  // console.log(starWarsPeople.objects)
-  var form1 = new Form;
-  var div = document.getElementsByTagName('div')
-  div[0].appendChild(form1.element)
-
-  var dropDown = new DropDown;
-  dropDown.addOptions(starWarsPeople.objects);
-  console.log(dropDown)
+  main()
+  
 }
 
 
@@ -139,5 +132,19 @@ var createAllPeopleObjectsArray = function(){
   starWarsPeople.addObjects(starWarsPeople1.objectCollection, starWarsPeople2.objectCollection, starWarsPeople3.objectCollection, starWarsPeople4.objectCollection, starWarsPeople5.objectCollection, starWarsPeople6.objectCollection, starWarsPeople7.objectCollection, starWarsPeople8.objectCollection, starWarsPeople9.objectCollection)
 
   return starWarsPeople;
+
+}
+
+var main = function(){
+  var starWarsPeople = createAllPeopleObjectsArray();
+  // console.log(starWarsPeople.objects)
+  var form1 = new Form;
+  var div = document.getElementsByTagName('div')
+  div[0].appendChild(form1.element)
+
+  var dropDown = new DropDown;
+  dropDown.addOptions(starWarsPeople.objects);
+  // console.log(dropDown.select)
+  form1.element.appendChild(dropDown.select)
 
 }

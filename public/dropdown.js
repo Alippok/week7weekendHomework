@@ -2,7 +2,7 @@
 
 
 var DropDown = function(){
-  this.dropDown = document.createElement("select")
+  this.select = document.createElement("select")
 }
 
 
@@ -12,7 +12,7 @@ DropDown.prototype = {
       var option = document.createElement("option")
       option.innerText = object.name;
       option.value = object.name;
-      this.dropDown.appendChild(option);
+      this.select.appendChild(option);
     }.bind(this));
   }
 }
