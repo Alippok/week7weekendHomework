@@ -173,4 +173,46 @@ requestTwenty.onload = function(){
   }
 }
 
-var requests = [requestOne, requestTwo, requestThree, requestFour, requestFive, requestSix, requestSeven, requestEight, requestNine, requestTen, requestEleven, requestTwelve, requestThirteen, requestFourteen, requestFifteen, requestSixteen, requestSeventeen, requestEighteen, requestNineteen, requestTwenty]
+//vehicles
+var requestTwentyOne = new XMLHttpRequest();
+requestTwentyOne.open("GET", urlTwentyOne);
+requestTwentyOne.onload = function(){
+  if (requestTwentyOne.status == 200){
+    var vehicles = requestTwentyOne.responseText;
+    localStorage.setItem("starWarsVehiclesPage1", vehicles );
+  }
+}
+
+var requestTwentyTwo = new XMLHttpRequest();
+requestTwentyTwo.open("GET", urlTwentyTwo);
+requestTwentyTwo.onload = function(){
+  if (requestTwentyTwo.status == 200){
+    var vehicles = requestTwentyTwo.responseText;
+    localStorage.setItem("starWarsVehiclesPage2", vehicles );
+  }
+}
+
+var requestTwentyThree = new XMLHttpRequest();
+requestTwentyThree.open("GET", urlTwentyThree);
+requestTwentyThree.onload = function(){
+  if (requestTwentyThree.status == 200){
+    var vehicles = requestTwentyThree.responseText;
+    localStorage.setItem("starWarsVehiclesPage3", vehicles );
+  }
+}
+
+var requestTwentyFour = new XMLHttpRequest();
+requestTwentyFour.open("GET", urlTwentyFour);
+requestTwentyFour.onload = function(){
+  if (requestTwentyFour.status == 200){
+    var vehicles = requestTwentyFour.responseText;
+    localStorage.setItem("starWarsVehiclesPage4", vehicles );
+  }
+}
+
+
+
+
+
+
+var requests = [requestOne, requestTwo, requestThree, requestFour, requestFive, requestSix, requestSeven, requestEight, requestNine, requestTen, requestEleven, requestTwelve, requestThirteen, requestFourteen, requestFifteen, requestSixteen, requestSeventeen, requestEighteen, requestNineteen, requestTwenty, requestTwentyOne, requestTwentyTwo, requestTwentyThree, requestTwentyFour ]

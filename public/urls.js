@@ -24,11 +24,15 @@ var urlEighteen = "http://swapi.co/api/species/?page=2"
 var urlNineteen = "http://swapi.co/api/species/?page=3"
 var urlTwenty = "http://swapi.co/api/species/?page=4"
 
+//Star Wars Vehicles
+var urlTwentyOne = "http://swapi.co/api/vehicles/?page=1"
+var urlTwentyTwo = "http://swapi.co/api/vehicles/?page=2"
+var urlTwentyThree = "http://swapi.co/api/vehicles/?page=3"
+var urlTwentyFour = "http://swapi.co/api/vehicles/?page=4"
 
-
-// "films": "http://swapi.co/api/films/",
+// "films": ,
 
 //     "planets": ,
 //     "species": 
 //     "starships": "http://swapi.co/api/starships/",
-//     "vehicles": "http://swapi.co/api/vehicles/"
+//     "vehicles": 

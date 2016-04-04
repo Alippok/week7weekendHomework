@@ -108,6 +108,9 @@ var main = function(){
   
   peopleDropDownMenu.select.onchange = function(){
     // console.log(peopleDropDownMenu.select.value)
+    
+
+
     var starWarsPeople = createAllPeopleObjectsArray();
     var planets = createAllPlanetObjectsArray();
     var species = createAllSpeciesObjectsArray();
@@ -261,6 +264,7 @@ var createAllPeopleObjectsArray = function(){
 
 }
 
+
 var createAllPlanetObjectsArray = function(){
   var planets1 = new MiniCollection;
   planets1.getFromLocalStorage("starWarsPlanetsPage1");
@@ -317,7 +321,21 @@ var createAllSpeciesObjectsArray = function(){
   return starWarsSpecies;
 }
 
+//A go at refactoring but not there yet...
+// var createObjectsArray = function(array, localStorageKey){
+//     array.forEach(function(variable){
+//       var variable = new MiniCollection;
+//       variable.getFromLocalStorage(localStorageKey + variable[length-1]);
+//       variable.storeObjects();
+      
+//     })
+  
+// }
 
+//A go at using the above function...
+// var array = ["vehicles1", "vehicles2", "vehicles3", "vehicles4"]
+// var vehicles = createObjectsArray(array, "starWarsVehiclesPage")
+// console.log(vehicles)
 
 
 // var populatePeopleDisplayArea = function(name){
